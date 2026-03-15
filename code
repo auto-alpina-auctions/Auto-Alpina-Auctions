@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dealership</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#featured">Featured Vehicles</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Welcome to Our Dealership</h1>
+            <p>Find your dream car today!</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="featured">
+            <h2>Featured Vehicles</h2>
+            <div class="vehicles">
+                <div class="vehicle">
+                    <img src="car1.jpg" alt="Car 1">
+                    <h3>Car Model 1</h3>
+                    <p>Price: R20,000</p>
+                </div>
+                <div class="vehicle">
+                    <img src="car2.jpg" alt="Car 2">
+                    <h3>Car Model 2</h3>
+                    <p>Price: R25,000</p>
+                </div>
+                <div class="vehicle">
+                    <img src="car3.jpg" alt="Car 3">
+                    <h3>Car Model 3</h3>
+                    <p>Price: R30,000</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: info@dealership.com</p>
+        <p>Phone: (123) 456-7890</p>
+    </footer>
+</body>
+</html>
