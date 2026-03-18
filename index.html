@@ -3,41 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Alpina Auctions</title>
+    <title>Auto Alpina Auctions – Premium Vehicle Dealership</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Auto Alpina Auctions</h1>
-        <p>Contact us at: info@autoalpina.co.za | +27 12 345 6789</p>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-brand">
+            <span class="brand-icon">&#9651;</span>
+            <span class="brand-name">Auto Alpina Auctions</span>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#vehicles">Vehicles</a></li>
+            <li><a href="#search">Search</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <header class="hero" role="banner">
+        <div class="hero-content">
+            <h1>Drive Your Dream</h1>
+            <p class="hero-sub">South Africa's premier destination for premium pre-owned vehicles</p>
+            <a href="#search" class="btn btn-primary">Browse Inventory</a>
+        </div>
     </header>
 
     <main>
-        <section>
-            <h2>Advanced Search</h2>
-            <form action="#">
-                <input type="text" placeholder="Search vehicles...">
-                <select name="filters">
-                    <option value="make">Make</option>
-                    <option value="model">Model</option>
-                    <option value="year">Year</option>
-                </select>
-                <input type="submit" value="Search">
-            </form>
+
+        <!-- ========== SEARCH & FILTER ========== -->
+        <section class="section" id="search" aria-labelledby="search-heading">
+            <div class="container">
+                <h2 id="search-heading" class="section-title">Find Your Vehicle</h2>
+                <div class="filter-panel">
+                    <div class="filter-row">
+                        <div class="filter-group">
+                            <label for="filterMake">Make</label>
+                            <select id="filterMake" name="make">
+                                <option value="">All Makes</option>
+                                <option value="BMW">BMW</option>
+                                <option value="Mercedes-Benz">Mercedes-Benz</option>
+                                <option value="Audi">Audi</option>
+                                <option value="Toyota">Toyota</option>
+                                <option value="Ford">Ford</option>
+                                <option value="Volkswagen">Volkswagen</option>
+                                <option value="Porsche">Porsche</option>
+                                <option value="Lexus">Lexus</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filterModel">Model</label>
+                            <input type="text" id="filterModel" name="model" placeholder="e.g. 3 Series">
+                        </div>
+                        <div class="filter-group">
+                            <label for="filterYear">Year (from)</label>
+                            <select id="filterYear" name="year">
+                                <option value="">Any Year</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                                <option value="2017">2017</option>
+                                <option value="2016">2016</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filterCondition">Condition</label>
+                            <select id="filterCondition" name="condition">
+                                <option value="">Any Condition</option>
+                                <option value="New">New</option>
+                                <option value="Used">Used</option>
+                                <option value="Certified Pre-Owned">Certified Pre-Owned</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filterMaxPrice">Max Price (ZAR)</label>
+                            <select id="filterMaxPrice" name="maxPrice">
+                                <option value="">Any Price</option>
+                                <option value="300000">R 300 000</option>
+                                <option value="500000">R 500 000</option>
+                                <option value="750000">R 750 000</option>
+                                <option value="1000000">R 1 000 000</option>
+                                <option value="1500000">R 1 500 000</option>
+                                <option value="2000000">R 2 000 000+</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="filter-actions">
+                        <button class="btn btn-primary" id="applyFilters">Search Vehicles</button>
+                        <button class="btn btn-outline" id="clearFilters">Clear Filters</button>
+                    </div>
+                </div>
+                <p class="results-count" id="resultsCount" aria-live="polite"></p>
+            </div>
         </section>
-        <section>
-            <h2>Vehicle Listings</h2>
-            <ul>
-                <li>Vehicle 1: Details</li>
-                <li>Vehicle 2: Details</li>
-                <li>Vehicle 3: Details</li>
-                <!-- More vehicle listings can go here -->
-            </ul>
+
+        <!-- ========== VEHICLE LISTINGS ========== -->
+        <section class="section section-alt" id="vehicles" aria-labelledby="vehicles-heading">
+            <div class="container">
+                <h2 id="vehicles-heading" class="section-title">Featured Vehicles</h2>
+                <div class="vehicle-grid" id="vehicleGrid">
+                    <!-- Cards injected by script.js -->
+                </div>
+                <p class="no-results hidden" id="noResults">No vehicles match your search criteria. Please adjust your filters.</p>
+            </div>
         </section>
+
+        <!-- ========== CONTACT FORM ========== -->
+        <section class="section" id="contact" aria-labelledby="contact-heading">
+            <div class="container">
+                <h2 id="contact-heading" class="section-title">Get In Touch</h2>
+                <p class="section-sub">Interested in a vehicle or have a question? Send us a message and we'll get back to you within 24 hours.</p>
+                <div class="contact-layout">
+                    <div class="contact-info">
+                        <h3>Contact Details</h3>
+                        <ul class="contact-details-list">
+                            <li>
+                                <span class="contact-icon">&#9993;</span>
+                                <a href="mailto:info@autoalpina.co.za">info@autoalpina.co.za</a>
+                            </li>
+                            <li>
+                                <span class="contact-icon">&#9743;</span>
+                                <a href="tel:+27123456789">+27 12 345 6789</a>
+                            </li>
+                            <li>
+                                <span class="contact-icon">&#9876;</span>
+                                123 Alpina Drive, Pretoria, Gauteng, 0001
+                            </li>
+                            <li>
+                                <span class="contact-icon">&#128336;</span>
+                                Mon–Fri: 08:00–17:00 | Sat: 09:00–14:00
+                            </li>
+                        </ul>
+                    </div>
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactName">Full Name <span class="required">*</span></label>
+                                <input type="text" id="contactName" name="name" placeholder="Jane Smith" required>
+                                <span class="field-error" id="nameError" aria-live="polite"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Email Address <span class="required">*</span></label>
+                                <input type="email" id="contactEmail" name="email" placeholder="jane@example.com" required>
+                                <span class="field-error" id="emailError" aria-live="polite"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Phone Number</label>
+                            <input type="tel" id="contactPhone" name="phone" placeholder="+27 82 123 4567">
+                            <span class="field-error" id="phoneError" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message <span class="required">*</span></label>
+                            <textarea id="contactMessage" name="message" rows="5" placeholder="Tell us about the vehicle you're interested in, or ask us a question..." required></textarea>
+                            <span class="field-error" id="messageError" aria-live="polite"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full" id="submitBtn">Send Message</button>
+                        <div class="form-feedback hidden" id="formSuccess" role="alert">
+                            <span class="feedback-icon">&#10003;</span>
+                            Thank you! Your message has been sent. We'll be in touch shortly.
+                        </div>
+                        <div class="form-feedback form-feedback-error hidden" id="formError" role="alert">
+                            <span class="feedback-icon">&#10007;</span>
+                            Please fix the errors above and try again.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <footer>
-        <p>&copy; 2026 Auto Alpina Auctions. All rights reserved.</p>
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="brand-icon">&#9651;</span>
+                <span class="brand-name">Auto Alpina Auctions</span>
+                <p class="footer-tagline">Premium Pre-Owned Vehicles — South Africa</p>
+            </div>
+            <div class="footer-links">
+                <a href="#vehicles">Inventory</a>
+                <a href="#search">Search</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Auto Alpina Auctions. All rights reserved.</p>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
